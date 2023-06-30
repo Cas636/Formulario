@@ -9,60 +9,59 @@
 </head>
 
 <body>
-    <form action="" class="formulario">
+    <form id="datos_form" action="" class="formulario">
         <h1 class="formulario__titulo">Información Microservicio</h1>
 
 
         <h2 class="formulario__titulo">Entidades:</h2>
 
-        <label class="formulario__boton" id="btnEntidad" onclick="duplicar()">
+        <label class="formulario__boton" onclick=" duplicar( this ) ">
             Agregar nueva Entidad
         </label>
-        <!--             
-            <script>duplicar(document.getElementById("contenedor"),
-            document.getElementById("btnEntidad"));</script> -->
 
 
 
-        <div class="clonar" id="cl">
+
+        <div class="cl" id="clonar">
+            <input type="text" class="formulario__input"  id="nombreid" name ="nombre">
+            <label for="" class="formulario__label" >Nombre</label>
+            
+        </div>
+        <div id="contenedor"> </div>
+
+
+
+
+            <h3 class="formulario__titulo">Atributo Primario</h3>
             <input type="text" class="formulario__input">
             <label for="" class="formulario__label">Nombre</label>
-            <span class="ocultar">Eliminar</span>
-        </div>
-        <div id="contenedor"></div>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Atributo</label>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Tipo</label>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Restricción</label>
 
 
-
-        <h3 class="formulario__titulo">Atributo Primario</h3>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Nombre</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Atributo</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Tipo</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Restricción</label>
-
-
-        <h3 class="formulario__titulo">Atributo</h3>
-        <input type="submit" value="Agregar nuevo Atributo" class="formulario__submit" id="btn_atributo">
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Nombre</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Atributo</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Tipo</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Restricción</label>
+            <h3 class="formulario__titulo">Atributo</h3>
+            <input type="submit" value="Agregar nuevo Atributo" class="formulario__submit" id="btn_atributo">
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Nombre</label>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Atributo</label>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Tipo</label>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Restricción</label>
 
 
-        <h3 class="formulario__titulo">Servicio</h3>
-        <input type="submit" value="Agregar nuevo Servicio" class="formulario__submit" id="btn_servicio">
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Nombre</label>
-        <input type="text" class="formulario__input">
-        <label for="" class="formulario__label">Tipo</label>
-
+            <h3 class="formulario__titulo">Servicio</h3>
+            <input type="submit" value="Agregar nuevo Servicio" class="formulario__submit" id="btn_servicio">
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Nombre</label>
+            <input type="text" class="formulario__input">
+            <label for="" class="formulario__label">Tipo</label>
+     
 
         <h2 class="formulario__titulo">Conexión:</h2>
         <input type="text" class="formulario__input">

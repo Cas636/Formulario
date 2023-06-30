@@ -18,9 +18,24 @@ body{
 }
 
 .formulario__titulo{
+    position: relative;
     text-align:center;
     margin-top: 0;
     color: rgba(0, 0, 0, 0.7);
+}
+.formulario__titulo::after,.formulario__titulo::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 3px;
+    background-color: black;
+    top: 0.6em;
+}
+.formulario__titulo::before{
+    left: -140px;
+}
+.formulario__titulo::after{
+    right: -140px;
 }
 
 
@@ -61,14 +76,16 @@ body{
 }
 
  .ocultar{
-    display: none;
     width: 100%;
     font-size: 1.3em;
-    background:rgba(0, 0, 0, 7);
+    background:rgb(228, 17, 17);
     color: white;
    padding:10px 20px; /*10 hacia arriba y 20 alos costados*/
+   margin-top: 30px;
+   margin-bottom: 30px;
     cursor: pointer;
 } 
+
 
 .formulario__boton{
     background:rgba(0, 0, 0, 7);
