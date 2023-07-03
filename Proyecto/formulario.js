@@ -1,5 +1,6 @@
 var x = 0;
 var a = 101;
+var j = 0;
 window.duplicar = function duplicar(id) {
   let contador = 0;
 
@@ -15,19 +16,17 @@ window.duplicar = function duplicar(id) {
   }
   let clonado = id.nextElementSibling;
   let clon = clonado.cloneNode(true);
-  nodoSiguiente.appendChild(clon);
+  clon.firstElementChild.value = "";
 
-
+  let titulito = id.previousElementSibling.textContent;
   const tit = document.createElement("h1");
-  const cont = document.createTextNode("titulito");
+  const cont = document.createTextNode(titulito);
   tit.className = "formulario__titulo";
   tit.appendChild(cont);
+  clon.insertBefore(tit, clon.firstElementChild);
 
+  nodoSiguiente.appendChild(clon);
 
-
-  nodoSiguiente.firstElementChild.insertBefore(tit, null);
-  console.log(nodoSiguiente.firstElementChild.id);
-  //console.log(getElementById(a));
   a = a + 1;
   x = x + 1;
 
@@ -35,19 +34,18 @@ window.duplicar = function duplicar(id) {
   newNode.className = "ocultar";
   newNode.textContent = "Eliminar";
   newNode.id = x;
-  newNode.onclick = function (id) { borrar(id) };
+  newNode.onclick = function (id) {
+    borrar(id);
+  };
 
   nodoSiguiente.insertBefore(newNode, null);
-
 };
-
 
 window.borrar = function borrar(id) {
   let contenedor = id.target;
   contenedor.previousSibling.remove();
   contenedor.remove();
 };
-
 
 var inputs = document.getElementsByClassName("formulario__input"); //arrive varios datos en una variable
 for (var i = 0; i < inputs.length; i++) {
@@ -62,7 +60,7 @@ for (var i = 0; i < inputs.length; i++) {
   });
 }
 
-let formulario = document.getElementById('datos_form');
+let formulario = document.getElementById("datos_form");
 
 const procesar = (event) => {
   event.preventDefault();
@@ -70,24 +68,30 @@ const procesar = (event) => {
   console.log(event.target);
   const datosCompl = Object.fromEntries(datos.entries());
   console.log(datosCompl);
-  console.log(JSON.stringify(datosCompl));
+  var json = JSON.stringify(datosCompl);
+  console.log(json);
 
-}
+  peticion = {
+    method: "POST",
+    body: json,
+  };
+  fetch("php/datoss.php", peticion)
+    .then((respuesta) => respuesta.json)
+    .then((respuesta) => {})
+    .catch((error) => console.log("error", error));
+};
 
-formulario.addEventListener('submit',procesar);
+// formulario.addEventListener("submit", procesar);
 
-
-
-formulario.addEventListener('submit', e =>{
-  e.preventDefault();
-  let datos = new FormData(formulario);
-  peticion ={
-    method:'POST',
-    body:datos,
-  }
-  fetch('php/datoss.php',peticion)
-  .then(respuesta => respuesta.json)
-  .then(respuesta => {
-
-  }).catch(error => console.log('error',error));
-});
+// formulario.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   let datos = new FormData(formulario);
+//   peticion = {
+//     method: "POST",
+//     body: datos,
+//   };
+//   fetch("php/datoss.php", peticion)
+//     .then((respuesta) => respuesta.json)
+//     .then((respuesta) => {})
+//     .catch((error) => console.log("error", error));
+// });
